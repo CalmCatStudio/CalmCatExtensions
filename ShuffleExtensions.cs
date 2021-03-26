@@ -4,17 +4,15 @@ using System.Collections.Generic;
 namespace CalmCatExtensions
 {
     /// <summary>
-    /// Adds an extension method to Shuffles groups of objects with the Fisher-Yates shuffle
+    /// Adds an extension method to Shuffle groups of objects with the Fisher-Yates shuffle
     /// </summary>
     public static class ShuffleExtensions
     {
         /// <summary>
-        /// Shuffles a list of objects
+        /// Shuffles the contents of the list
         /// </summary>
-        /// <param name="list">The list to shuffle</param>
         /// <param name="random">The Random instance to use for shuffling</param>
-        /// <returns></returns>
-        public static List<T> Shuffle<T>(this List<T> list, Random random)
+        public static void Shuffle<T>(this List<T> list, Random random)
         {
             int count = list.Count;
             for (int i = 0; i < count; i++)
@@ -26,21 +24,22 @@ namespace CalmCatExtensions
                 list[i] = list[randomNumber];
                 list[randomNumber] = temp;
             }
-            return list;
         }
 
         /// <summary>
-        /// Creates a new Random, and shuffles the deck with it
+        /// Creates a new instance of Random, and shuffles the contents of the list with it
         /// </summary>
-        /// <param name="list">The list to shuffle</param>
-        /// <returns></returns>
-        public static List<T> Shuffle<T>(this List<T> list)
+        public static void Shuffle<T>(this List<T> list)
         {
             Random random = new Random();
-            return list.Shuffle(random);
+            list.Shuffle(random);
         }
 
-        public static T[] Shuffle<T>(this T[] array, Random random)
+        /// <summary>
+        /// Shuffles the contents of the array
+        /// </summary>
+        /// <param name="random">The instance of random to shuffle with</param>
+        public static void Shuffle<T>(this T[] array, Random random)
         {
             int count = array.Length - 1;
             for (int i = 0; i < count; i++)
@@ -53,13 +52,15 @@ namespace CalmCatExtensions
                 array[randomNumber] = temp;
 
             }
-            return array;
         }
 
-        public static T[] Shuffle<T>(this T[] array)
+        /// <summary>
+        /// Creates a new instance of Random and shuffles the contents of the array with it.
+        /// </summary>
+        public static void Shuffle<T>(this T[] array)
         {
             Random random = new Random();
-            return array.Shuffle(random);
+            array.Shuffle(random);
         }
     }
 }

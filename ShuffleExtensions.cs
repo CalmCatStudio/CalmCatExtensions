@@ -29,7 +29,8 @@ namespace CalmCatExtensions
             }
 
             /// <summary>
-            /// Creates a new instance of Random, and shuffles the contents of the list with it
+            /// Adds an extension method to Shuffle groups of objects with the Fisher-Yates shuffle
+            /// Creates a new instance of Random to shuffle with. You can also pass an instance of random.
             /// </summary>
             public static void Shuffle<T>(this List<T> list)
             {
@@ -38,7 +39,7 @@ namespace CalmCatExtensions
             }
 
             /// <summary>
-            /// Shuffles the contents of the array
+            /// Adds an extension method to Shuffle groups of objects with the Fisher-Yates shuffle
             /// </summary>
             /// <param name="random">The instance of random to shuffle with</param>
             public static void Shuffle<T>(this T[] array, Random random)
@@ -57,7 +58,8 @@ namespace CalmCatExtensions
             }
 
             /// <summary>
-            /// Creates a new instance of Random and shuffles the contents of the array with it.
+            /// Adds an extension method to Shuffle groups of objects with the Fisher-Yates shuffle
+            /// Creates a new instance of Random to shuffle with. You can also pass an instance of random.
             /// </summary>
             public static void Shuffle<T>(this T[] array)
             {
